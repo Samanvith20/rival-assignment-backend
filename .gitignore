@@ -9,7 +9,7 @@ node_modules/
 
 # Drizzle build/meta files (not required in repo)
 drizzle/
-drizzle.config.js
+
 
 # Logs
 npm-debug.log*
