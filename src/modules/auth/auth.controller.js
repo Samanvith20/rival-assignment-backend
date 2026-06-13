@@ -74,7 +74,7 @@ export const login = async (req, res) => {
 
     const isMatch =
       await bcrypt.compare(
-        password,
+        password.trim(),
         user.passwordHash
       );
 

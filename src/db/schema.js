@@ -79,7 +79,7 @@ export const tasks = pgTable("tasks", {
 
   title: varchar("title", {
     length: 255,
-  }).notNull(),
+  }).notNull().unique(),
 
   description: text(
     "description"

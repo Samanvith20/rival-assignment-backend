@@ -20,18 +20,19 @@ const router = Router();
 
 router.post(
   "/signup",
-  validate(signupSchema),
+  validate(signupSchema, "body"),
   signup
 );
 
 router.post(
   "/login",
-  validate(loginSchema),
+  validate(loginSchema, "body"),
   login
 );
 
 router.post(
   "/logout",
+
   logout
 );
 

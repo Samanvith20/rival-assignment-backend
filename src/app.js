@@ -3,6 +3,10 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 
 import authRoutes from "./modules/auth/auth.routes.js";
+import taskRoutes from "./modules/tasks/task.routes.js";
+
+import { errorHandler } from "./middlewares/error.middleware.js";
+
 
 
 
@@ -10,18 +14,9 @@ import authRoutes from "./modules/auth/auth.routes.js";
 
 const app = express();
 app.use(cookieParser());
-
+app.use(errorHandler);
 app.use(express.json());
-app.use((err, req, res, next) => {
-  console.error(err);
 
-  return res.status(err.statusCode || 500).json({
-    success: false,
-    message:
-      err.message ||
-      "Internal Server Error",
-  });
-});
 
 app.use(
   cors({
@@ -36,6 +31,10 @@ app.use(cookieParser());
 app.use(
   "/api/auth",
   authRoutes
+);
+app.use(
+  "/api/tasks",
+  taskRoutes
 );
 
 export default app;
